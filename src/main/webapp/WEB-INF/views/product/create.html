@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+          integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+            crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Estonia&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2">
+
+        </div>
+        <div class="col-8">
+            <h1>Create Product</h1>
+            <a style="width: 80px;height: 37px" href="/products" class="btn btn-secondary btn-sm">BackList</a>
+            <form th:action="@{/create-product}" method="post">
+                <table class="table table-hover">
+                    <tr>
+                        <td>Name:</td>
+                        <td><input class="form-control" type="text" name="name"/></td>
+                    </tr>
+                    <tr>
+                        <td>Price:</td>
+                        <td><input class="form-control" type="text" name="price" /></td>
+                    </tr>
+                    <tr>
+                        <td>Quantity:</td>
+                        <td><input class="form-control" type="text" name="quantity"/></td>
+                    </tr>
+                    <tr>
+                        <td>Color:</td>
+                        <td><input class="form-control" type="text" name="color"/></td>
+                    </tr>
+                    <tr>
+                        <td>Description:</td>
+                        <td><input class="form-control" type="text" name="description"/></td>
+                    </tr>
+                    <tr>
+                        <td>Category:</td>
+                        <td>
+                            <select name="category">
+                                <option class="form-control" th:each="p : ${categories}" th:value="${p.id}" th:text="${p.name}"></option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" >
+                            <button type="submit" class="btn btn-success">Create product</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+
+</body>
+</html>
